@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ruleta</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <nav class="navMenu">
+    <a href="#">Ruleta</a>
+    <a href="#">Deposito</a>
+    <a href="#">Retiro</a>
+
+    <a href="#" style="float: right; padding-right: 10px;">Perfil</a>
+    <span style="float: right; padding-right: 10px;">$ 100 </span>
+    <div class="dot"></div>
+  </nav>
+
+  <div>
+    <div class="last100results">
+      <span>Last 100</span>
+      <div class="redStat">
+        <span class="redStatImg red"></span>
+        <span id="redStatNum" class="statNum">0</span>
+      </div>
+      <div class="greenStat">
+        <span class="greenStatImg green"></span>
+        <span id="greenStatNum" class="statNum">0</span>
+      </div>
+      <div class="blackStat">
+        <span class="blackStatImg black"></span>
+        <span id="blackStatNum" class="statNum">0</span>
+      </div>
+    </div>
+
+    <div id="lastRolls" class="lastRolls">
+
+    </div>
+
+    <div class='roulette-wrapper'>
+      <div class='selector'></div>
+      <div class='wheel'></div>
+    </div>
+
+    <div class="timerContainer">
+      <span id="timerText">Rolling in</span><span id="countdown" style="font-weight: bold;"></span>
+    </div>
+    <div id="countdownProgressBar" class="round-time-bar" data-style="smooth" style="--duration: 20;">
+      <div></div>
+    </div>
+
+    <div>
+
+
+      <div id="floatContainer1" class="float-container">
+        <label for="floatField1">Bet amount</label>
+        <input type="text" id="floatField1" data-placeholder="">
+        <div style="float: right;">
+          <span class="spanInputBetAmount">CLEAR</span>
+          <button class="btnInputBetAmount" type="button">LAST</button>
+          <button class="btnInputBetAmount" type="button">1/2</button>
+          <button class="btnInputBetAmount" type="button">X2</button>
+          <button class="btnInputBetAmount" type="button">MAX</button>
+        </div>
+        <script src="betAmountInputLabel.js" type="text/javascript"></script>
+      </div>
+
+
+      <div class="apuestas-container">
+        <div class="apuesta-rojo red" onclick="redBet()">
+          <span>Place Bet</span>
+        </div>
+        <div class="apuesta-verde green" onclick="greenBet()">
+          <span>Place Bet</span>
+        </div>
+        <div class="apuesta-negro black" onclick="blackBet()">
+          <span>Place Bet</span>
+        </div>
+      </div>
+
+      <div class="apuestas-container">
+
+        <div class="dvAllApuestas"> <!--Red-->
+          <div id="RedApuestas" class="dvAllApuestasBetsTotal">
+            <span style="margin-left: 1em;">0 Bets</span>
+            <span style="margin-right: 1em; margin-left: auto;">$0</span>
+          </div>
+          <div id="redUsersAllBets" class="redUsersAllBets" style="width: 100%;">
+            <div class="userBet"> <!-- sumar 30px a la height por cada userBet -->
+              <span>User 1</span>
+              <span>$ 1.00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dvAllApuestas"> <!--Red-->
+          <div id="GreenApuestas" class="dvAllApuestasBetsTotal">
+            <span style="margin-left: 1em;">0 Bets</span>
+            <span style="margin-right: 1em; margin-left: auto;">$0</span>
+          </div>
+          <div id="greenUsersAllBets" class="greenUsersAllBets" style="width: 100%;">
+            <div class="userBet"> <!-- sumar 30px a la height por cada userBet -->
+              <span>User 1</span>
+              <span>$ 1.00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dvAllApuestas"> <!--Red-->
+          <div id="BlackApuestas" class="dvAllApuestasBetsTotal">
+            <span style="margin-left: 1em;">0 Bets</span>
+            <span style="margin-right: 1em; margin-left: auto;">$0</span>
+          </div>
+          <div id="blackUsersAllBets" class="blackUsersAllBets" style="width: 100%;">
+            <div class="userBet" > <!-- sumar 30px a la height por cada userBet -->
+              <span>User 1</span>
+              <span>$ 1.00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- partial -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="application/javascript" src="script.js"></script>
+
+</body>
+
+</html>
